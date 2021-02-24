@@ -24,9 +24,9 @@ export default class FinancialSummary extends LightningElement {
         .then((results) => {
             this.results = results;
             this.portfolioCount = results[0].portfolioCount;
-            this.transferValuationSum = results[0].transferValuationSum.toFixed(0);
-            this.currentValuationSum = results[0].currentValuationSum.toFixed(0);
-            this.performanceInCurrency = (this.currentValuationSum - this.transferValuationSum).toString().replace(".00","");
+            this.transferValuationSum = results[0].transferValuationSum;
+            this.currentValuationSum = results[0].currentValuationSum;
+            this.performanceInCurrency = (this.currentValuationSum - this.transferValuationSum);
             this.performanceInPercent = (((this.performanceInCurrency/this.transferValuationSum) * 100).toFixed(2).toString() + "%");
             console.log(this.results);
         })
@@ -35,4 +35,5 @@ export default class FinancialSummary extends LightningElement {
             this.errors = [error]
         })
     }
+
 }
