@@ -2,88 +2,63 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 02-22-2021
+  @last modified on  : 02-25-2021
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
   Modifications Log 
   Ver   Date         Author                               Modification
-  1.0   02-19-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+  1.0   02-24-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
 -->
-<template >
-  <div style="color:#232B55; text-align:center; font-size:20px; font-weight: bold; font-family:roboto" class="slds-border_bottom"><span>FINANCIAL SUMMARY</span></div>
-   
-  <div class="c-container slds-align_absolute-center" style="font-family:roboto; font-weight: bold; background-color:#F3F4F8" >
-     <lightning-layout>
-      <template if:true={results}>
-        <lightning-layout-item padding="around-medium">
-            <div class="header-column">
-                <p style="color:#3d3d3dc0" class="field-title" title="UK Portfolio">UK Portfolio Managed</p>
-                <p style="color:#232B55; font-size:45px; text-align:center;" >{portfolioCount}</p>
-            </div>
-        </lightning-layout-item>
+<template>
+  <div class = "slds-container_center" style="width:1375px; font-family:roboto; font-size:20px; font-weight: bold; background-color:#e0e2e3">
 
-        <lightning-layout-item padding="around-large">
-          <div class="header-column"></div>
-        </lightning-layout-item>
-        <lightning-layout-item padding="around-large">
-          <div class="header-column"></div>
-        </lightning-layout-item>
-
-        <lightning-layout-item padding="around-medium">
-            <div class="header-column">
-                <p style="color:#3d3d3dc0" class="field-title" title="Investment">Investment</p>
-                <p><lightning-formatted-number value={transferValuationSum} format-style="currency" currency-code="GBP" style="color:#3d3d3d; font-size:30px" maximum-fraction-digits="0" minimum-fraction-digits="0"></lightning-formatted-number></p>
-
-            </div>
-        </lightning-layout-item>
-
-        <lightning-layout-item padding="around-large">
-          <div class="header-column"></div>
-        </lightning-layout-item>
-        <lightning-layout-item padding="around-large">
-          <div class="header-column"></div>
-        </lightning-layout-item>
-
-        <lightning-layout-item padding="around-medium">
-            <div class="header-column">
-                <p style="color:#3d3d3dc0" class="field-title" title="Today">Today</p>
-                <p><lightning-formatted-number value={currentValuationSum} format-style="currency" currency-code="GBP" style="color:#232B55; font-size:30px" maximum-fraction-digits="0" minimum-fraction-digits="0"></lightning-formatted-number></p>
-
-            </div>
-        </lightning-layout-item>
-
-        <lightning-layout-item padding="around-large">
-          <div class="header-column"></div>
-        </lightning-layout-item>
-        <lightning-layout-item padding="around-large">
-          <div class="header-column"></div>
-        </lightning-layout-item>
-
-        <lightning-layout-item padding="around-medium">
-            <div class="header-column">
-                <p style="color:#3d3d3dc0" class="field-title" title="Performance">Performance</p>
-                <p style="color:#232B55; font-size:20px; font-weight: bold">+<lightning-formatted-number style="color:#232B55; font-size:20px; font-weight: bold" value={performanceInCurrency} format-style="currency" currency-code="GBP" maximum-fraction-digits="0" minimum-fraction-digits="0"></lightning-formatted-number></p>
-                <p style="color:#77dd77; font-size:20px; font-weight: bold">+{performanceInPercent}</p>
-
-              </div>
-        </lightning-layout-item>
-      </template>
-
-      <template if:false={results}>
-        <p>No Results Returned.</p>
-      </template>
-      
-      <!-- Errors Start -->
-      <template for:each={errors} for:item="error">
-      <label
-        key={error.id}
-        role="alert"
-        class="slds-form-element__label slds-var-m-top_xx-small form-error"
-        >{error.message}</label
-      >
-      </template>
-      <!-- Errors End -->
-
-    </lightning-layout>
-</div>
-</template>
+    <template if:true={results}>
  
+      <div class="slds-align_absolute-center slds-col slds-size_1-of-1 slds-border_bottom" style="color:#232B55; font-size:25px ">
+        <span>FINANCIAL SUMMARY</span>
+      </div>
+
+      <div class="slds-grid slds-wrap slds-grid_align-center"  style="padding:50px">
+        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-4" >
+          <ul>
+            <li style="color:#3d3d3dc0">UK Portfolio Managed</li>
+            <li style="color:#232B55; font-size:45px" >{portfolioCount}</li>
+          </ul>  
+        </div>
+        
+        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-4">
+          <ul>
+            <li style="color:#3d3d3dc0" class="field-title" title="Investment">Investment</li>
+            <li><lightning-formatted-number value={transferValuationSum} format-style="currency" currency-code="GBP" style="color:#3d3d3dc0; font-size:40px" maximum-fraction-digits="0" minimum-fraction-digits="0"></lightning-formatted-number></li>
+          </ul>
+            </div>
+
+        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-4">
+          <ul>
+            <li style="color:#3d3d3dc0" class="field-title" title="Today">Today</li>
+            <li><lightning-formatted-number value={currentValuationSum} format-style="currency" currency-code="GBP" style="color:#232B55; font-size:40px" maximum-fraction-digits="0" minimum-fraction-digits="0"></lightning-formatted-number></li>
+          </ul>
+        </div>
+
+        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-4">
+          <ul>
+            <li style="color:#3d3d3dc0" class="field-title" title="Performance">Performance</li>
+            <li style="color:#232B55">+<lightning-formatted-number style="color:#232B55" value={performanceInCurrency} format-style="currency" currency-code="GBP" maximum-fraction-digits="0" minimum-fraction-digits="0"></lightning-formatted-number></li>
+            <li style="color:#77dd77">+{performanceInPercent}</li>
+          </ul>  
+        </div>
+
+      </div>
+    </template>
+
+    <template if:false={results}>
+      <span>No Results Returned.</span>
+    </template>
+
+    <!-- Errors Start -->
+    <template for:each={errors} for:item="error">
+    <label key={error.id} role="alert" class="slds-form-element__label slds-var-m-top_xx-small form-error">{error.message}</label>
+    </template>
+    <!-- Errors End -->
+  </div>
+
+</template>  

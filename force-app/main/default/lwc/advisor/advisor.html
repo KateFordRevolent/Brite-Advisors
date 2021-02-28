@@ -1,3 +1,38 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 02-28-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   02-24-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
 <template>
-    
-</template>
+  <div class = "slds-container_center" style="width:1375px; font-family:roboto; font-size:20px; font-weight: bold; background-color:#e0e2e3">
+
+    <template if:true={results}>
+ 
+      <div class="slds-align_absolute-center slds-col slds-size_1-of-1 slds-border_bottom" style="color:#232B55; font-size:25px ">
+        <span>Advisor</span>
+      </div>
+      {name}
+      {email}
+      {mobilephone}
+      Image
+      </div>
+    </template>
+
+    <template if:false={results}>
+      <span>No Results Returned.</span>
+    </template>
+
+    <!-- Errors Start -->
+    <template for:each={errors} for:item="error">
+    <label key={error.id} role="alert" class="slds-form-element__label slds-var-m-top_xx-small form-error">{error.message}</label>
+    </template>
+    <!-- Errors End -->
+
+  </div>
+
+</template>  
