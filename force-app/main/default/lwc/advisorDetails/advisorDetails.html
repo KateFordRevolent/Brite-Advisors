@@ -1,0 +1,61 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 03-02-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Ver   Date         Author                               Modification
+  1.0   03-01-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
+<template>
+    <lightning-tile>
+        <div style="font-family:roboto; font-size: 15px">
+
+            <div class="comm-tile-menu__item-title vertical-padding slds-text-align_center" style="font-weight: bold; background-color:#232B55; font-size: 20px; color: rgb(255, 255, 255); border-radius: 25px 25px 0px 0px; padding:30px 0;">
+                YOUR ADVISOR
+            </div>
+
+            <div class="slds-align--absolute-center comm-tile-menu__item-image comm-tile-menu__item-no-image" style="background-color:#e0e2e3; border-radius: 0px 0px 25px 25px;">
+                
+                <template if:true={user}>    
+                    
+                    <div class="slds-grid slds-gutters slds-grid_align-center"  style="padding:50px">
+                        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-3" >
+                            <ul>
+                                <img src={advisorImageUrl} alternative-text="No Image Available">
+                                <li class="class='field-title" style="font-weight: bold" title="AdvisorName">{user.Name}</li>
+                                <li class="class='field-title" style="font-size: 10px" title="AdvisorRole">{user.UserRole.Name}</li>
+                            </ul>  
+                        </div>
+                        
+                        <div class="slds-align_absolute-center slds-col slds-grid slds-size_2-of-3">
+                            <ul>
+                                <li><h2>Hi {user.FirstName}, </h2></li>
+                                <li><h2>Good to see you online.</h2></li>     
+                                <li><h2>If you need to chat, you can reach me here:</h2></li>
+                                <div style="font-size: 10px">
+                                    <lightning-input placeholder="Your message here" ></lightning-input>
+                                   
+                                <lightning-button style="font-size: 8px" label="Send" onclick={sendEmailAfterEvent}></lightning-button>
+                                <!--{outputText}-->
+                            </div> 
+                            </ul>
+                        </div>
+                    </div>
+      
+                </template>
+
+                <template if:false={user}>
+                    <span>No Results Returned.</span>
+                </template>
+                
+                <!-- Errors Start -->
+                <template for:each={errors} for:item="error">
+                    <label key={error.id} role="alert" class="slds-form-element__label slds-var-m-top_xx-small form-error">{error.message}</label>
+                </template>
+                <!-- Errors End -->
+
+            </div>
+        </div>
+    </lightning-tile>
+</template>

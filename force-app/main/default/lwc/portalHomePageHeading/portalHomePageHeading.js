@@ -7,17 +7,14 @@ import getUserDetails from '@salesforce/apex/UserInfoDetails.getUserDetails';
 import Id from '@salesforce/user/Id';
 
 
-export default class Userinfoexample extends LightningElement {
+export default class Userinfoexample extends LightningElement
+ {
     userId = Id;
     @track user;
     @track error;
-    @wire(getUserDetails, {
-        recId: '$userId'
-    })
-    wiredUser({
-        error,
-        data
-    }) {
+    @wire(getUserDetails, {recId: '$userId' })
+
+    wiredUser({ error, data}) { 
         if (data) {
             this.user = data;
 
