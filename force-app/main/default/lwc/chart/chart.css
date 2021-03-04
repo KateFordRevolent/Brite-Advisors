@@ -1,0 +1,10 @@
+.container {
+    overflow: hidden;
+    color: #f5b041;
+}
+
+.line {
+    margin-left: 4px;
+    height: 36px;
+    background-color: #232B55;
+}

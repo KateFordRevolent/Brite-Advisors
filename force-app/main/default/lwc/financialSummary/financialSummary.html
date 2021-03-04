@@ -2,14 +2,17 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 02-25-2021
+  @last modified on  : 03-03-2021
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
   Modifications Log 
   Ver   Date         Author                               Modification
   1.0   02-24-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+  style="width:1375px;
 -->
 <template>
-  <div class = "slds-container_center" style="width:1375px; font-family:roboto; font-size:20px; font-weight: bold; background-color:#e0e2e3">
+<lightning-layout-item size="12" medium-device-size="4">
+  
+  <div class = "slds-container_center" font-family:roboto; font-size:20px; font-weight: bold; background-color:#e0e2e3">
 
     <template if:true={results}>
  
@@ -60,5 +63,5 @@
     </template>
     <!-- Errors End -->
   </div>
-
+</lightning-layout-item>
 </template>  
