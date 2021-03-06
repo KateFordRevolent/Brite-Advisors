@@ -6,6 +6,6 @@
     }
   ],
   "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sfdcLoginUrl": "https://briteadvisorsmvp.lightning.force.com",
   "sourceApiVersion": "50.0"
 }
