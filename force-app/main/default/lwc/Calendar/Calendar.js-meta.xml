@@ -3,7 +3,7 @@
     <apiVersion>50.0</apiVersion>
     <description>This describes the component</description>
     <isExposed>true</isExposed>
-    <masterLabel>Advisor Details</masterLabel>
+    <masterLabel>Calendar Events</masterLabel>
     <targets>
         <target>lightning__AppPage</target>
         <target>lightning__RecordPage</target>

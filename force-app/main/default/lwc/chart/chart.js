@@ -1,14 +1,3 @@
-
-
-
-
-
-
-
-// import { LightningElement } from 'lwc';
-
-// export default class FTSEChart extends LightningElement {}
-
 import { LightningElement } from 'lwc';
 import { loadScript, loadStyle } from 'lightning/platformResourceLoader';
 import chartjs from '@salesforce/resourceUrl/chartJs';

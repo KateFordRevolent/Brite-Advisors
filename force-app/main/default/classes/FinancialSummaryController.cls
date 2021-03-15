@@ -2,27 +2,47 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 02-28-2021
+ * @last modified on  : 03-12-2021
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  * Modifications Log 
- * Ver   Date         Author                               Modification
- * 1.0   02-20-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+ * Ver   Date         Author Kate Ford                     Modification Soql Query
+ * 1.0   10-03-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
 **/
-//TODO This needs modifying. 
+//When able to get values in the financial summary fields in accounts and add a new summary field.   
 public with sharing class FinancialSummaryController {
     @AuraEnabled(cacheable=true)
     public static List<AggregateResult> getFinancialSummary(ID recId) {
-        return [SELECT Owner.Name,
-        COUNT(Id) portfolioCount,
-        SUM(transfer_valuation__c) transferValuationSum ,
-        SUM(current_valuation__c) currentValuationSum
-        FROM FinServ__FinancialAccount__c
-        WHERE ownerid = :recId
-        WITH SECURITY_ENFORCED
-        GROUP BY Owner.Name
+
+        // Client One user id for katedev '0058E000007k5QXQAY'
+        //recId = '0058E000007k5QXQAY';
+        
+        User userObj = UserInfoDetails.getUserDetails(recId);
+        Id accountId = userObj.accountId;
+
+        return
+        [   SELECT FinServ__PrimaryOwner__c,
+                    COUNT(Id) portfolioCount,
+                    SUM(transfer_valuation__c) transferValuationSum ,
+                    SUM(current_valuation__c) currentValuationSum
+            FROM FinServ__FinancialAccount__c
+            WHERE FinServ__PrimaryOwner__c = :accountId
+            WITH SECURITY_ENFORCED
+            GROUP BY FinServ__PrimaryOwner__c
         ];
+
+        // Formula fields predictable ... TODO
+        // [   SELECT  id,
+        //             name,
+        //             FinServ__TotalNumberOfFinAccounts__c,
+        //             FinServ__TotalFinancialAccounts__c
+        //     FROM    account
+        //     WHERE  Id = :accountId
+        //     WITH SECURITY_ENFORCED
+        // ];
     }
 }
 
-
+// Formula fields
+//FinServ__TotalNumberOfFinAccounts__c,
+//FinServ__TotalFinancialAccounts__c
 
