@@ -4,9 +4,6 @@ import {LightningElement} from 'lwc';
 import userId from '@salesforce/user/Id';
 
 // * Apex Imports
-import getUserDetails from '@salesforce/apex/UserInfoDetails.getUserDetails';
-
-// * Apex Imports
 import getFinancialSummary from '@salesforce/apex/FinancialSummaryController.getFinancialSummary';
 
 export default class FinancialSummary extends LightningElement {

@@ -1,4 +1,4 @@
-import {LightningElement, wire, track, api} from 'lwc';
+import {LightningElement, wire, track} from 'lwc';
 
 import getAdvisorDetails from '@salesforce/apex/AdvisorController.getAdvisorDetails';
 import Id from '@salesforce/user/Id';
@@ -25,10 +25,12 @@ export default class AdvisorDetails extends LightningElement
         if (data)
         {
             this.user = data;
+            console.log(this.user);
         }
             else if (error) 
         {
             this.error = error;
+            console.log(this.error);
         }
     }
 
@@ -39,6 +41,7 @@ export default class AdvisorDetails extends LightningElement
     @track outputText;
     updateText(event) {
         this.outputText = this.template.querySelector('lightning-input').value;
+        console.log(this.outputText);
     }
 
     sendEmailAfterEvent(){

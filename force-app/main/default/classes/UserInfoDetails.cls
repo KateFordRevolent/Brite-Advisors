@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-12-2021
+ * @last modified on  : 03-16-2021
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  * Modifications Log 
  * Ver   Date         Author                               Modification
@@ -12,6 +12,9 @@ public WITH SHARING class UserInfoDetails {
     
     @AuraEnabled(cacheable=true)
     public static User getUserDetails(String recId) {
+
+        // Client One user id for katedev '0058E000007k5QXQAY'
+        // recId = '0058E000007k5QXQAY';
 
         return  [SELECT Id , Name, userType, Email, accountid, contactId
                 FROM User
