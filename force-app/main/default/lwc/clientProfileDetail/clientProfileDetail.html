@@ -9,43 +9,15 @@
   1.0   03-17-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
 -->
 <template>
-    <div class = "slds-container_center" style="font-family:roboto; font-size:20px; font-weight: bold; background-color:#f3f7fd">
+      <div class = "slds-container_center" style="font-family: 'Roboto', sans-serif; font-size:10px; font-weight: bold; background-color:#f3f7fd">
+            <lightning-record-form 
+                record-id={contactId} 
+                object-api-name="Contact" 
+                columns="2" 
+                fields={fields}
+                >
+                <!-- layout-type="Compact"> -->
+            </lightning-record-form>
 
-    <template if:true={results}>
-    <lightning-record-edit-form record-id={recordId} object-api-name="Contact" onsuccess={handleSuccess} onsubmit ={handleSubmit}>
-        <lightning-messages></lightning-messages>
-        <div class="slds-grid">
-            <div class="slds-col slds-size_1-of-2">
-                <!-- Your lightning-input-field components here 
-                Name, 
-                Email,
-                Phone,
-                HomePhone,
-                MobilePhone,
-                FinServ__SourceSystemId__c,
-                National_Insurance_Number__c,
-                FinServ__ContactPreference__c  -->  
-                <lightning-input-field field-name="Name" value={Name}></lightning-output-field>
-            </div>
-
-            <div class="slds-col slds-size_1-of-2">
-                <!-- More lightning-input-field components here 
-                MailingAddress,
-                MailingPostalCode,
-                MailingCountry,
-                MailingState,
-                MailingCity,
-                MailingStreet,-->
-                <lightning-input-field field-name="MailingAddress" value={MailingAddress}></lightning-input-field>
-            
-
-                <img src={advisorImageUrl} alternative-text="No Image Available">
-                <lightning-button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Update"></lightning-button>
-                <lightning-button class="slds-m-top_small" variant="brand" type="cancel" name="cancel" label="Cancel" onclick={handleReset}></lightning-button>
-            </div>
-        </div>
-        
-    </lightning-record-edit-form>
-</template>
-</div>
+    </div>    
 </template>

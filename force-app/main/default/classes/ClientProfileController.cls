@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-17-2021
+ * @last modified on  : 03-18-2021
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  * Modifications Log 
  * Ver   Date         Author                               Modification
@@ -15,11 +15,11 @@ public with sharing class ClientProfileController {
 
         // Client One user id for katedev '0058E000007k5QXQAY'
         //recId = '0058E000007k5QXQAY';
-        
+                
         User userObj = UserInfoDetails.getUserDetails(recId);
-        //Id contactId = userObj.contactId;
-        Id contactId = '0038E00001EHO8WQAX';
-
+        Id contactId = userObj.contactId;
+        //Id contactId = '0038E00001EHO8WQAX';
+  
         return
         [   SELECT Id,
                     Name, 

@@ -1,6 +1,5 @@
 import {LightningElement,wire,track} from 'lwc';
 import getUserDetails from '@salesforce/apex/UserInfoDetails.getUserDetails';
-
 import Id from '@salesforce/user/Id';
 export default class Userinfoexample extends LightningElement
  {
