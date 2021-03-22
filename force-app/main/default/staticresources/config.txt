@@ -1,0 +1,2 @@
+// Authorize an org
+sfdx force:auth:web:login -a katedev -d -r https://test.salesforce.com

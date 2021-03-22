@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-12-2021
+ * @last modified on  : 03-19-2021
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  * Modifications Log 
  * Ver   Date         Author                               Modification
@@ -14,11 +14,11 @@ private class TestFinancialSummaryController{
 	@isTest static void financialSummaryExists() {
         
 		User userObj = new User (
-			FirstName = 'test value3', 
+			FirstName = 'FinServ', 
 			MobilePhone = '1234567890', 
-			Username = 'testvalue3@gmail.com', 
-			LastName = 'test value3', 
-			Email = 'testvalue3@gmail.com'
+			Username = 'finservtest@gmail.com', 
+			LastName = 'Test', 
+			Email = 'finservtest@gmail.com'
 		);
   		
 		// Insert User Record

@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-12-2021
+ * @last modified on  : 03-19-2021
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  * Modifications Log 
  * Ver   Date         Author                               Modification
@@ -14,11 +14,11 @@ private class TestAdvisorController{
 	@isTest static void advisorExists() {
         
 		User userObj = new User (
-			FirstName = 'test value1', 
+			FirstName = 'Advisor', 
 			MobilePhone = '1234567890', 
-			Username = 'testvalue1@gmail.com', 
-			LastName = 'test value1', 
-			Email = 'testvalue1@gmail.com'
+			Username = 'advisortest@gmail.com', 
+			LastName = 'Test', 
+			Email = 'advisortest@gmail.com'
 		);
   		
 		// Insert User Record
