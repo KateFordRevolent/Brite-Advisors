@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-16-2021
+ * @last modified on  : 03-25-2021
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  * Modifications Log 
  * Ver   Date         Author                               Modification
@@ -11,15 +11,19 @@
 public WITH SHARING class AdvisorController {
     
     @AuraEnabled(cacheable=true)
-        public static User getAdvisorDetails(String recId) 
+        public static Contact getAdvisorDetails(String recId) 
         {
+            // uatmvp Set to Individual Account Test Client for testing
+            recId = '005050000014SNLAA2';
+            User userObj = UserInfoDetails.getUserDetails(recId);
 
-        // Client One user id for katedev '0058E000007k5QXQAY'
-        // recId = '0058E000007k5QXQAY';
+system.debug(recId);
+system.debug(userObj);
 
-            return  [Select Id, Name, FirstName, LastName, Email, MobilePhone
-                    FROM User
-                    WHERE Id = :recId
-                    WITH SECURITY_ENFORCED ];
+            return [SELECT  Id, FirstName, LastName, ownerId, Name, owner.Name
+                    FROM    contact
+                    WHERE   Id = :userObj.contactId
+                    WITH    SECURITY_ENFORCED ];
+
         }
     }

@@ -13,11 +13,13 @@ import phone_field from '@salesforce/schema/contact.Phone';
 import mobile_field from '@salesforce/schema/contact.MobilePhone';
 import home_phone_field from '@salesforce/schema/contact.HomePhone';
 import mailing_address_field from '@salesforce/schema/contact.MailingAddress';
-import national_insurance_number_field from '@salesforce/schema/contact.National_Insurance_Number__c';
+import national_insurance_number_field from '@salesforce/schema/contact.UK_NI_Number__c';
 import contact_preference_field from '@salesforce/schema/contact.FinServ__ContactPreference__c';
 
-//Import the current user's Advisor Image : AdvisorImage plus Name
-import clientImage from '@salesforce/resourceUrl/AdvisorImageLyndseyStarkie';
+// Fields to add
+//import birth_date_field from '@salesforce/schema/contact.Birthdate';
+//import benaficiaries_field from '@salesforce/schema/contact.Benaficiaries';
+
 export default class editRecordForm extends LightningElement {
 
     //* PRIVATE PROPERTIES
@@ -28,7 +30,7 @@ export default class editRecordForm extends LightningElement {
 
     // ! connectedCallback: This is called when the LWC is pushed into the DOM.
     connectedCallback() {
-        this.userId = '0058E000007k5QXQAY';
+        //this.userId = '0058E000007k5QXQAY';
         // Call the getUserDetails function.
         this.getUserDetails();
     }
