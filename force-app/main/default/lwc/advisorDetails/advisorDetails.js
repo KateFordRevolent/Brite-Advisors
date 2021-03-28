@@ -4,6 +4,13 @@ import Id from '@salesforce/user/Id';
 
 import getAdvisorDetails from '@salesforce/apex/AdvisorController.getAdvisorDetails';
 
+// Import the generic static resourcesource URL for use in the template
+//advisorImageUrl = My_Resources + '/images/AndrewAnell
+// We can build our specific to the static resource, dynamically.
+//const AdvisorName = getAdvisorName();
+//const resourcePath = `${briteLWCResources}_${AdvisorName}/sourc
+//const containerEleme
+
 // Import the current user's Advisor Image : Advisor's Name
 // Imported all images until work out a better way to do this.
 import My_Resources from '@salesforce/resourceUrl/AndrewAnello';

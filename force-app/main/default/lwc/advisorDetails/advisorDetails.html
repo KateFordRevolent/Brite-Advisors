@@ -2,7 +2,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 03-26-2021
+  @last modified on  : 03-28-2021
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
   Ver   Date         Author                               Modification
   1.0   03-01-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
@@ -31,6 +31,10 @@
                         </div>
                         <div class="slds-align_absolute-center slds-col slds-grid slds-size_2-of-2">
                             <ul>
+                                <div class="pictureContainer">
+                                    <img class="theimage" src="smiley.png" height="300" width="150"/>
+                                </div>
+                
                                 <img src={advisorImageUrl} alternative-text="No Image Available">
                                 <li class="class='field-title" title="AdvisorName">{contact.Owner.Name}</li>
                                 <li class="class='field-title" title="AdvisorRole">Investment Advisor</li>
@@ -61,37 +65,4 @@
 
             <!-- Errors Start 
             <template for:each={errors} for:item="error">
-                <label key={error.id} role="alert" class="slds-form-element__label slds-var-m-top_xx-small form-error">{error.message}</label>
-            </template>
-             Errors End -->
-
-            </div>
-        </div>
-    </lightning-tile>
-</template>
-
-<template>
-<lightning-card>
-    
-    <lightning-layout multiple-rows>
-       <lightning-layout-item size="12" 
-            small-device-size="9"
-            padding="around-small">
-            <ul>
-                <li><h2>Hi {contact.FirstName}, </h2></li>
-                <li><h2>Good to see you online.</h2></li>     
-                <li><h2>If you need to chat, you can reach me here:</h2></li>
-            </ul>
-        </lightning-layout-item>
-        <lightning-layout-item size="12"
-            small-device-size="3"
-            padding="around-small">
-            <ul>
-                <img src={advisorImageUrl} alternative-text="No Image Available">
-                <li class="class='field-title" title="AdvisorName">{contact.Owner.Name}</li>
-                <li class="class='field-title" title="AdvisorRole">Investment Advisor</li>
-            </ul>
-        </lightning-layout-item>
-    </lightning-layout>
-  </lightning-card>
-</template>
+                <label key={error.id} role="alert" class="slds-form-element__label slds-var-m-top_xx-small form-error">{e
