@@ -5,12 +5,13 @@ import Id from '@salesforce/user/Id';
 import getUserDetails from '@salesforce/apex/UserInfoDetails.getUserDetails';
 
 // Import the current user's Image : AdvisorImage plus Name
-import client_image_field from '@salesforce/resourceUrl/AdvisorImageLyndseyStarkie';
+//import client_image_field from '@salesforce/resourceUrl/AdvisorImageLyndseyStarkie';
 
 import name_field from '@salesforce/schema/contact.Name';
 import email_field from '@salesforce/schema/contact.Email';
 import phone_field from '@salesforce/schema/contact.Phone';
 import mobile_field from '@salesforce/schema/contact.MobilePhone';
+import risk_profile_field from '@salesforce/schema/contact.Risk_Profile__c';
 import home_phone_field from '@salesforce/schema/contact.HomePhone';
 import mailing_address_field from '@salesforce/schema/contact.MailingAddress';
 import national_insurance_number_field from '@salesforce/schema/contact.UK_NI_Number__c';
@@ -26,7 +27,7 @@ export default class editRecordForm extends LightningElement {
     errors = [];
     userId = Id; // Stores the current user Id.
     contactId; // Stores the contact Id.
-    fields = [name_field,mailing_address_field, email_field, phone_field, mobile_field, home_phone_field,national_insurance_number_field,contact_preference_field,client_image_field]; // The list of fields to display.
+    fields = [name_field,mailing_address_field, phone_field, mobile_field, email_field, national_insurance_number_field,contact_preference_field,risk_profile_field]; // The list of fields to display.
 
     // ! connectedCallback: This is called when the LWC is pushed into the DOM.
     connectedCallback() {

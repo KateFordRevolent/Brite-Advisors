@@ -2,20 +2,20 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 02-24-2021
+  @last modified on  : 03-25-2021
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
   Modifications Log 
   Ver   Date         Author                               Modification
-  1.0   02-19-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+  1.0   03-25-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
 -->
 <template>
-<div class="c-container">
-        <lightning-layout multiple-rows="false">
-            <lightning-layout-item padding="around-small" size="12">
-                <div class="page-section page-header">
+    <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+        <lightning-layout multiple-rows>
+            <lightning-layout-item padding="around-small" size="12" small-device-size="8" medium-device-size="12">
+                <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
                     <template if:true={user}>
-                        <h1 style="background-color:#232B55; font-size:45px; padding:50px 0; height:180px; text-transform:uppercase; font-family: Roboto, sans-serif; font-weight:200; text-align:center; vertical-align: middle; color:white;">WELCOME {user.Name} TO YOUR BRITE PORTAL</h1>
-                    </template>    
+                        <h1 style="background-color:#232B55; font-size:45px; padding:50px 0; height:180px; text-transform:uppercase; font-family: Roboto, sans-serif; font-weight:200; vertical-align: middle; color:white;">WELCOME {user.Name} TO YOUR BRITE PORTAL</h1>
+                    </template> 
                 </div>
             </lightning-layout-item>
         </lightning-layout>

@@ -2,7 +2,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 03-25-2021
+  @last modified on  : 03-26-2021
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
   Ver   Date         Author                               Modification
   1.0   03-01-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
@@ -16,33 +16,43 @@
                 YOUR ADVISOR
             </div>
 
-            <div style="font-size: 15px; font-weight: bold ;background-color:#e0e2e3; border-radius: 0px 0px 25px 25px" class="slds-align--absolute-center comm-tile-menu__item-image comm-tile-menu__item-no-image">
+            <div style="font-size: 15px; font-weight: bold ;background-color:#f5f7fa; border-radius: 0px 0px 25px 25px" class="slds-align--absolute-center comm-tile-menu__item-image comm-tile-menu__item-no-image">
             
                 <template if:true={contact}>    
                 
                     <div class="slds-grid slds-gutters slds-grid_align-center"  style="padding:50px">
-                        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-3" >
-                            <ul>
-                                <img src={advisorImageUrl} alternative-text="No Image Available">
-                                <li class="class='field-title" title="AdvisorName">{contact.Name}</li>
-                                <li class="class='field-title" title="AdvisorRole">Investment Advisor</li>
-                            </ul>
-                        </div>
-                            
-                        <div class="slds-align_absolute-center slds-col slds-grid slds-size_2-of-3">
+                                                 
+                        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-2">
                             <ul>
                                 <li><h2>Hi {contact.FirstName}, </h2></li>
                                 <li><h2>Good to see you online.</h2></li>     
                                 <li><h2>If you need to chat, you can reach me here:</h2></li>
-                                
+                            </ul>    
+                        </div>
+                        <div class="slds-align_absolute-center slds-col slds-grid slds-size_2-of-2">
+                            <ul>
+                                <img src={advisorImageUrl} alternative-text="No Image Available">
+                                <li class="class='field-title" title="AdvisorName">{contact.Owner.Name}</li>
+                                <li class="class='field-title" title="AdvisorRole">Investment Advisor</li>
+                            </ul>
+                        </div>  
+                    </div>     
+                    
+                    <div class="slds-grid slds-gutters slds-grid_align-center"  style="padding:50px">
+                    
+                        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-1">
+
                                 <div>
-                                    <lightning-input type="email" onchange={handleChange} placeholder="Your message here" name="emailAddress" required ></lightning-input>
-                                    <lightning-button onclick={sendEmailHandler} label="Send Email" variant="brand"></lightning-button>
+                                    <lightning-textarea onchange={handleChange} name="emailAddress" placeholder="Your message here..."></lightning-textarea>
+                                    <lightning-button onclick={sendEmailHandler} label="Send" variant="brand"></lightning-button>
                                 </div>
 
                             </ul>
                         </div>
-                    </div>
+                    </div>    
+                        
+
+                    
                 </template>    
                 
             <template if:false={contact}>
@@ -58,4 +68,30 @@
             </div>
         </div>
     </lightning-tile>
+</template>
+
+<template>
+<lightning-card>
+    
+    <lightning-layout multiple-rows>
+       <lightning-layout-item size="12" 
+            small-device-size="9"
+            padding="around-small">
+            <ul>
+                <li><h2>Hi {contact.FirstName}, </h2></li>
+                <li><h2>Good to see you online.</h2></li>     
+                <li><h2>If you need to chat, you can reach me here:</h2></li>
+            </ul>
+        </lightning-layout-item>
+        <lightning-layout-item size="12"
+            small-device-size="3"
+            padding="around-small">
+            <ul>
+                <img src={advisorImageUrl} alternative-text="No Image Available">
+                <li class="class='field-title" title="AdvisorName">{contact.Owner.Name}</li>
+                <li class="class='field-title" title="AdvisorRole">Investment Advisor</li>
+            </ul>
+        </lightning-layout-item>
+    </lightning-layout>
+  </lightning-card>
 </template>
