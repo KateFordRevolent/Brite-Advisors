@@ -1,6 +1,7 @@
 import {LightningElement, wire, api, track} from 'lwc';
 
 import Id from '@salesforce/user/Id';
+import OwnerNameAccount from '@salesforce/schema/Account.Owner.Name';
 
 import getAdvisorDetails from '@salesforce/apex/AdvisorController.getAdvisorDetails';
 
@@ -12,18 +13,21 @@ import getAdvisorDetails from '@salesforce/apex/AdvisorController.getAdvisorDeta
 //const containerEleme
 
 // Import the current user's Advisor Image : Advisor's Name
-// Imported all images until work out a better way to do this.
-import My_Resources from '@salesforce/resourceUrl/AndrewAnello';
-//import GarethJones from '@salesforce/resourceUrl/GarethJones';
-//import JackLamb from '@salesforce/resourceUrl/JackLamb';
-//import My_Resources from '@salesforce/resourceUrl/LyndseyStarkie';
-//import advisorImagePending from '@salesforce/resourceUrl/AdvisorImagePending';
+//import briteResources from '@salesforce/resourceUrl/briteResources';
+
+import advisorImage from '@salesforce/resourceUrl/LyndseyStarkie';
+
+import advisorImage_AndrewAnello from '@salesforce/resourceUrl/AndrewAnello';
+import advisorImage_GarethJones from '@salesforce/resourceUrl/GarethJones';
+import advisorImage_EliZimmer from '@salesforce/resourceUrl/EliZimmer';
+import advisorImage_JackLamb from '@salesforce/resourceUrl/JackLamb';
+import advisorImage_LyndseyStarkie from '@salesforce/resourceUrl/LyndseyStarkie';
+import AdvisorImage_Pending from '@salesforce/resourceUrl/AdvisorImagePending';
 
 import sendEmail from '@salesforce/apex/EmailHandler.sendEmail';
 
 // Send Advisor message via email when text input and submitted 
 //import sendEmailToController from '@salesforce/apex/EmailController.sendEmailToController'
-
 export default class AdvisorDetails extends LightningElement 
 {
     // Properties
@@ -31,8 +35,12 @@ export default class AdvisorDetails extends LightningElement
     userId = Id;
 
     // Expose the static resource URL for use in the template
-    // TODO remove hardcoded images
-    advisorImageUrl = My_Resources + '/images/AndrewAnello.jpg';
+    advisorImageUrl_AndrewAnello = advisorImage_AndrewAnello;
+    advisorImageUrl_GarethJones = advisorImage_GarethJones;
+    advisorImageUrl_JackLamb = advisorImage_JackLamb;
+    advisorImageUrl_EliZimmer = advisorImage_EliZimmer;
+    advisorImageUrl_LyndseyStarkie = advisorImage_LyndseyStarkie;
+    advisorImageUrl_Pending = advisorImage_Pending;
     
     @track contact;
     @track error;
@@ -44,8 +52,7 @@ export default class AdvisorDetails extends LightningElement
         {
             console.log(data);
             this.contact = data;
-
-        }
+            }
             else if (error) 
         {
             this.error = error;
