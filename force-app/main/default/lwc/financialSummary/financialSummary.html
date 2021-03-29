@@ -9,7 +9,7 @@
   1.0   03-25-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
 -->
 <template>
-  <div style="font-family: Roboto, sans-serif; font-size:20px; font-weight: bold; background-color:#f3f7fd" class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+  <div style="font-family: Roboto, sans-serif; font-size:25px; font-weight: bold; background-color:#f3f7fd" class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
       <lightning-layout multiple-rows>
         <template if:true={results}>
           <lightning-layout-item padding="around-small" size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
@@ -41,8 +41,8 @@
                 <ul>
                   <li style="color:#3d3d3dc0" class="field-title" title="Performance">Performance</li>
                   <li style="color:#232B55">+<lightning-formatted-number style="color:#232B55" value={performanceInCurrency} format-style="currency" currency-code="GBP" maximum-fraction-digits="0" minimum-fraction-digits="0"></lightning-formatted-number></li>
-                  <p style="color:#77dd77">  +{performanceInPercent}</p>
-                </ul>  
+                  <li style="color:#77dd77">  +{performanceInPercent}</li>  
+                </ul>
               </div>
           </lightning-layout-item>
         </template>

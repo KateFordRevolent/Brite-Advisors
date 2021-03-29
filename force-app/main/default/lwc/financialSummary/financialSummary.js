@@ -16,6 +16,7 @@ export default class FinancialSummary extends LightningElement {
     currentValuationSum;
     performanceInCurrency;
     performanceInPercent;
+    perfornance;
 
     // ! connectedCallback: This is called when the LWC is pushed into the DOM.
     connectedCallback() {
@@ -31,7 +32,7 @@ export default class FinancialSummary extends LightningElement {
             this.currentValuationSum = results[0].currentValuationSum;
             this.performanceInCurrency = (this.currentValuationSum - this.transferValuationSum);
             this.performanceInPercent = (((this.performanceInCurrency/this.transferValuationSum) * 100).toFixed(2).toString() + "%");
-      
+            this.performance = this.preformanceInCurrency + ' ' + this.performanceInPercent;
         })
         .catch((error) => {
             console.log(JSON.stringify(error));

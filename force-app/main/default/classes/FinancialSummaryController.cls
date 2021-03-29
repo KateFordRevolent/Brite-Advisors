@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-12-2021
+ * @last modified on  : 03-29-2021
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  * Modifications Log 
  * Ver   Date         Author Kate Ford                     Modification Soql Query
@@ -13,8 +13,7 @@ public with sharing class FinancialSummaryController {
     @AuraEnabled(cacheable=true)
     public static List<AggregateResult> getFinancialSummary(ID recId) {
 
-        // Client One user id for katedev '0058E000007k5QXQAY'
-        //recId = '0058E000007k5QXQAY';
+        //recId = '005050000014XTEAA2';
         
         User userObj = UserInfoDetails.getUserDetails(recId);
         Id accountId = userObj.accountId;
@@ -30,7 +29,7 @@ public with sharing class FinancialSummaryController {
             GROUP BY FinServ__PrimaryOwner__c
         ];
 
-        // Formula fields predictable ... TODO
+        // Formula fields unpredictable ... TODO
         // [   SELECT  id,
         //             name,
         //             FinServ__TotalNumberOfFinAccounts__c,
