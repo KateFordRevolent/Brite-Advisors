@@ -2,7 +2,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 03-18-2021
+  @last modified on  : 03-29-2021
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
   Modifications Log 
   Ver   Date         Author                               Modification
@@ -17,6 +17,15 @@
                 fields={fields}
                 >
                 <!-- layout-type="Compact"> -->
+                <ul>
+                  <div class="pictureContainer">
+                      <div>
+                          <img class="theimage" src={advisorImageStaticUrl} alternative-text="No Image Available" height="300" width="150"/>
+                      </div>
+                  </div>                                 
+                  <li class="class='field-title" title="AdvisorName">{contact.Owner.Name}</li>
+                  <li class="class='field-title" title="AdvisorRole">Investment Advisor</li>
+              </ul>
             </lightning-record-form>
 
     </div>    

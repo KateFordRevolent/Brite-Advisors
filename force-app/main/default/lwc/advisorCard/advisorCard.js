@@ -4,10 +4,11 @@ import advisorImagesUrl from '@salesforce/resourceUrl/advisorImages';
 import Id from '@salesforce/user/Id';
 import getAdvisorDetails from '@salesforce/apex/AdvisorController.getAdvisorDetails';
 import sendEmail from '@salesforce/apex/EmailHandler.sendEmail';
-export default class AdvisorDetails extends LightningElement 
+
+export default class AdvisorCard extends LightningElement 
 {
     // Properties
-    userId = Id;
+    userId = '005050000014XTEAA2';
  
     // Expose the static resource URL for use in the template
     advisorImageStaticUrl = advisorImageStaticUrl;

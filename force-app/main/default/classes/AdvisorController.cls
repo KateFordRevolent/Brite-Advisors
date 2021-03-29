@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-26-2021
+ * @last modified on  : 03-29-2021
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  * Modifications Log 
  * Ver   Date         Author                               Modification
@@ -20,7 +20,7 @@ public WITH SHARING class AdvisorController
         User userObj = UserInfoDetails.getUserDetails(recId);
         //Id contactId = '00305000008DfF0AAK';
 
-        return [SELECT  Id, FirstName, Owner.Name
+        return [SELECT  Id, FirstName, Owner.Name, advisorImageUrl__c
                 FROM    Contact
                 WHERE   Id = :userObj.contactId
                 WITH    SECURITY_ENFORCED ];
