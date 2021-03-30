@@ -2,84 +2,85 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 03-29-2021
+  @last modified on  : 03-30-2021
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
   Ver   Date         Author                               Modification
   1.0   03-01-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
 -->
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 03-30-2021
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
+  Ver   Date         Author                               Modification
+  1.0   03-25-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+-->
 <template>
-    <lightning-tile>
-        <div style="font-family: Roboto, sans-serif;" class="comm-tile-menu__item-box-shadow">
-
-
-            <div style="font-size: 20px; font-weight: bold; background-color:#232B55; color: rgb(255, 255, 255); border-radius: 25px 25px 0px 0px; padding:30px 0" class="comm-tile-menu__item-title vertical-padding slds-text-align_center" >
-                YOUR ADVISOR
-            </div>
-
-            <div style="font-size: 15px; font-weight: bold ;background-color:#f5f7fa; border-radius: 0px 0px 25px 25px" class="slds-align--absolute-center comm-tile-menu__item-image comm-tile-menu__item-no-image">
-            
-                <template if:true={contact}>    
-                
-                    <div class="slds-grid slds-gutters slds-grid_align-center"  style="padding:50px">
-                                                 
-                        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-3">
-                            <ul>
-                                <div class="pictureContainer">
-                                    <div>
-                                        <img class="theimage" src={advisorImageStaticUrl} alternative-text="No Image Available" height="300" width="150"/>
-                                    </div>
-                                </div>                                 
-                                <li class="class='field-title" title="AdvisorName">{contact.Owner.Name}</li>
-                                <li class="class='field-title" title="AdvisorRole">Investment Advisor</li>
-                            </ul>
-                        </div>  
-                    
-                    
-                        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-3">
-                            <ul>
-                                <li>Hi {contact.FirstName},</li>
-                                <li>Good to see you online.</li>     
-                                <li>If you need to chat, you can reach me here:</li>
-                            </ul>    
-                        </div>
-
-                        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-3">
-                            <ul>
-                                <div>
-                                    <lightning-textarea onchange={handleChange} name="emailAddress" placeholder="Your message here..."></lightning-textarea>
-                                    <lightning-button onclick={sendEmailHandler} label="Send" style="background-color:#232B55"></lightning-button>
-                                </div>
-                            </ul>
-                      
-                    </div>
+    <div style="font-family: Roboto, sans-serif; font-weight: bold; background-color:#f3f7fd" class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+        <div style="font-size: 20px; background-color:#232B55; color: rgb(255, 255, 255); border-radius: 25px 25px 0px 0px; padding:30px 0" class="comm-tile-menu__item-title vertical-padding slds-text-align_center" >
+            YOUR ADVISOR
+        </div> 
+        <lightning-layout multiple-rows>
+          <template if:true={contact}>
+            <lightning-layout-item padding="around-small" size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
+                <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
+                    <ul>
+                        <img class="theimage" src={advisorImageStaticUrl} alternative-text="No Image Available" height="400" width="300"/>
+                    </ul>  
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
+                 <div style="font-size: 15px" class="custom-box slds-box slds-p-around_medium" height="400" width="300">
+                  
+                    <ul>
+                        <li>Hi {contact.FirstName},</li>
+                        <li>Good to see you online.</li>     
+                        <li>If you need to chat, you can reach me here:</li>
+                    </ul>
+                    <br><br><br>
+                    <ul>
+                        <li class="class='field-title" title="AdvisorName">{contact.Owner.Name}</li>
+                        <li class="class='field-title" title="AdvisorRole">Investment Advisor</li>
+                        <li class="class='field-title" title="AdvisorEmail">{contact.Owner.Email}</li>
+                        <li class="class='field-title" title="AdvisorMobilePhone">{contact.Owner.MobilePhone}</li>
+                    </ul>
                  
-                        
-                    </div>     
-                    
-                    
-                        
-                 
-                        
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
+                <div class="custom-box slds-box slds-p-around_medium slds-text-align_center" height="400" width="400">
+                    <ul>
+                        <lightning-textarea onchange={handleChange} name="email" style="height: 10rem; width:20rem" placeholder="Your message here..."></lightning-textarea>
+                    </ul>
+                    <lightning-button onclick={sendEmailHandler} label="Send" style="background-color:#232B55"></lightning-button>
+                   
+                </div>
+            </lightning-layout-item>
+          </template>
+          <template if:false={contact}>
+            <span>No Results Returned.</span>
+          </template>
+          
+          <!-- Errors Start -->
+          <template for:each={errors} for:item="error">
+          <label key={error.id} role="alert" class="slds-form-element__label slds-var-m-top_xx-small form-error">{error.message}</label>
+          </template>
+          <!-- Errors End -->
+          
+        </lightning-layout>
+    </div>
+  </template>  
+  
+  
 
-                    
-                </template>    
-                
-            <template if:false={contact}>
-                <span>No Results Returned.</span>
-            </template> 
 
-            <!-- Errors End -->
-            <template if:false={contact}>
-                <span>No Results Returned.</span>
-            </template> 
 
-            <!-- Errors Start 
-            <template for:each={errors} for:item="error">
-                <label key={error.id} role="alert" class="slds-form-element__label slds-var-m-top_xx-small form-error">{error.message}</label>
-            </template>
-             Errors End -->
 
-            </div>
-        </div>
-    </lightning-tile>
-</template>
+
+
+
+
+
+

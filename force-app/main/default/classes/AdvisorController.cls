@@ -15,12 +15,10 @@ public WITH SHARING class AdvisorController
 
     public static Contact getAdvisorDetails(String recId) 
     {
-        //uatmvp Set to Individual Account Test Client for testing
-        //recId = '005050000014SNLAA2';
-        User userObj = UserInfoDetails.getUserDetails(recId);
-        //Id contactId = '00305000008DfF0AAK';
 
-        return [SELECT  Id, FirstName, Owner.Name, advisorImageUrl__c
+        User userObj = UserInfoDetails.getUserDetails(recId);
+
+        return [SELECT  Id, Name, FirstName, LastName, Owner.Name, Owner.Email
                 FROM    Contact
                 WHERE   Id = :userObj.contactId
                 WITH    SECURITY_ENFORCED ];

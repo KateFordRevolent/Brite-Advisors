@@ -4,75 +4,16 @@
   @group             : 
   @last modified on  : 03-29-2021
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+  Modifications Log 
   Ver   Date         Author                               Modification
-  1.0   03-01-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
+  1.0   03-29-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
 -->
 <template>
-    <lightning-tile>
-        <div style="font-family: Roboto, sans-serif; border-radius: 0px 0px 25px 25px" class="comm-tile-menu__item-box-shadow">
-
-
-            <div style="font-size: 20px; font-weight: bold; background-color:#232B55; color: rgb(255, 255, 255); border-radius: 25px 25px 0px 0px; padding:30px 0" class="comm-tile-menu__item-title vertical-padding slds-text-align_center" >
-                YOUR ADVISOR
-            </div>
-
-            <div style="font-size: 15px; font-weight: bold ;background-color:#f5f7fa" class="slds-align--absolute-center comm-tile-menu__item-no-image">
-            
-                <template if:true={contact}>    
-                
-                    <div class="slds-grid slds-gutters slds-grid_align-center"  style="padding:50px">
-                                                 
-                        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-3">
-                            <ul>
-                                <div class="pictureContainer">
-                                    <div>
-                                        <img class="theimage" src={advisorImageStaticUrl} alternative-text="No Image Available" height="300" width="150"/>
-                                    </div>
-                                </div>                                 
-                                <li class="class='field-title" title="AdvisorName">{contact.Owner.Name}</li>
-                                <li class="class='field-title" title="AdvisorRole">Investment Advisor</li>
-                            </ul>
-                        </div>  
-                    
-                    
-                        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-3">
-                            <ul>
-                                <li><h2>Hi {contact.FirstName}, </h2></li>
-                                <li><h2>Good to see you online.</h2></li>     
-                                <li><h2>If you need to chat, you can reach me here:</h2></li>
-                            </ul>    
-                        </div>
-
-                        <div class="slds-align_absolute-center slds-col slds-grid slds-size_1-of-3">
-                            <ul>
-                                <div>
-                                    <lightning-textarea onchange={handleChange} name="emailAddress" placeholder="Your message here..."></lightning-textarea>
-                                    <lightning-button onclick={sendEmailHandler} label="Send" style="background-color:#232B55"></lightning-button>
-                                </div>
-                            </ul>
-                      
-                    </div>
-                        
-                    </div>     
-                    
-                </template>    
-                
-            <template if:false={contact}>
-                <span>No Results Returned.</span>
-            </template> 
-
-            <!-- Errors End -->
-            <template if:false={contact}>
-                <span>No Results Returned.</span>
-            </template> 
-
-            <!-- Errors Start 
-            <template for:each={errors} for:item="error">
-                <label key={error.id} role="alert" class="slds-form-element__label slds-var-m-top_xx-small form-error">{error.message}</label>
-            </template>
-             Errors End -->
-
-            </div>
-        </div>
-    </lightning-tile>
+    <template if:true={contact}> 
+    <lightning-card  title="Hello">
+        <img slot="action" class="theimage" src={advisorImageStaticUrl} alternative-text="No Image Available" height="300" width="150"/>
+        <p class="slds-p-horizontal_small">Card Body (custom component)</p>
+        <p slot="footer">Card Footer</p>
+    </lightning-card>
+    </template>
 </template>

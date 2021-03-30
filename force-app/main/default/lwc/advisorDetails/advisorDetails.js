@@ -7,7 +7,7 @@ import sendEmail from '@salesforce/apex/EmailHandler.sendEmail';
 export default class AdvisorDetails extends LightningElement 
 {
     // Properties
-    userId = Id;
+    userId = '005050000014XSLAA2';
  
     // Expose the static resource URL for use in the template
     advisorImageStaticUrl = advisorImageStaticUrl;
@@ -32,21 +32,27 @@ export default class AdvisorDetails extends LightningElement
         }
     }
 
-    @track email = 'kate@brite-advisors.com';
+
+    @track subject = 'Please contact your Brite Advisor MVP Client: '; 
+    @track body;
+    @track email = 'ba-mvp@brite-advisors.com';
  
     handleChange(event) {
-        if (event.target.name === 'kate@brite-adivsors.com') {
-            this.email = event.target.value;
+        if (event.target.name === email) {
+            this.toAddress = event.target.value;
+            this.body = this.template.querySelector('lightning-textarea').value;
+            this.subject = subject + ' ' + this.Name;
         }
     }
       
     sendEmailHandler(event) {
         // send mail
-        console.log("Sending email to", this.email);
-        sendEmail({ toAddress: this.email, subject: "Subject goes here", body: "Message goes here ...!"});
+        console.log("Sending email to", this.toAddress);
+        sendEmail({ toAddress: this.toAddress, subject: this.subject, body: this.body = this.template.querySelector('lightning-input').value});
+        console.log("Subject is ", this.subject);
+        console.log("Body is ", this.body);
     }
     
 }
-
 
 

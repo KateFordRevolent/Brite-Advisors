@@ -10,7 +10,7 @@
 **/
 public without sharing class EmailHandler {
     @AuraEnabled
-    public static void sendEmail(List<String> toAddress, String subject, String body) {      
+    public static void sendEmail(List<String> toAddress, String replyAddress, String replyName, String subject, String body) {      
         Messaging.reserveSingleEmailCapacity(1);
         try{
         messaging.SingleEmailMessage mail = new messaging.SingleEmailMessage();
@@ -20,8 +20,8 @@ public without sharing class EmailHandler {
         System.debug(subject);
                  
         mail.setToAddresses(toAddress);
-        mail.setReplyTo('kate@briteadvisors.com');
-        mail.setSenderDisplayName('Kate Ford');
+        mail.setReplyTo(replyAddress);
+        mail.setSenderDisplayName(replyName);
         mail.setSubject(subject);
         mail.setHtmlBody(body);
         // mail.setEntityAttachments(files);
