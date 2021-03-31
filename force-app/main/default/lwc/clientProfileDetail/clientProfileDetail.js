@@ -31,7 +31,6 @@ export default class editRecordForm extends LightningElement {
 
     // ! connectedCallback: This is called when the LWC is pushed into the DOM.
     connectedCallback() {
-        //this.userId = '0058E000007k5QXQAY';
         // Call the getUserDetails function.
         this.getUserDetails();
     }

@@ -2,7 +2,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 03-30-2021
+  @last modified on  : 03-31-2021
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
   Ver   Date         Author                               Modification
   1.0   03-01-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
@@ -11,7 +11,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 03-30-2021
+  @last modified on  : 03-31-2021
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
   Modifications Log 
   Ver   Date         Author                               Modification
@@ -44,15 +44,13 @@
                     <ul>
                         <li class="class='field-title" title="AdvisorName">{contact.Owner.Name}</li>
                         <li class="class='field-title" title="AdvisorRole">Investment Advisor</li>
-                        <li class="class='field-title" title="AdvisorEmail">{contact.Owner.Email}</li>
-                        <li class="class='field-title" title="AdvisorMobilePhone">{contact.Owner.MobilePhone}</li>
+                        <li class="class='field-title" title="AdvisorEmail">briteadvisorsmvp@gmail.com</li>
                     </ul>
                  
                 </div>
             </lightning-layout-item>
 
             <lightning-layout-item padding="around-small" size="12" small-device-size="6" medium-device-size="6" large-device-size="6">
-                <lightning-input data-name="emailAddress" value={contact.Owner.Email}></lightning-input>
                 
                 <textarea onchange={handleChange} data-name="emailBody" name="emailBody" style="width:100%;" placeholder="Enter message here ..."></textarea>
                 <lightning-button onclick={sendEmailHandler} label="Send" style="background-color:#232B55"></lightning-button>

@@ -2,19 +2,17 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-29-2021
+ * @last modified on  : 03-31-2021
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  * Modifications Log 
  * Ver   Date         Author Kate Ford                     Modification Soql Query
  * 1.0   10-03-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
 **/
 //When able to get values in the financial summary fields in accounts and add a new summary field.   
-public with sharing class FinancialSummaryController {
+public without sharing class FinancialSummaryController {
     @AuraEnabled(cacheable=true)
     public static List<AggregateResult> getFinancialSummary(ID recId) {
-
-        //recId = '005050000014XTEAA2';
-        
+    
         User userObj = UserInfoDetails.getUserDetails(recId);
         Id accountId = userObj.accountId;
 
@@ -40,8 +38,3 @@ public with sharing class FinancialSummaryController {
         // ];
     }
 }
-
-// Formula fields
-//FinServ__TotalNumberOfFinAccounts__c,
-//FinServ__TotalFinancialAccounts__c
-

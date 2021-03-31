@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-19-2021
+ * @last modified on  : 03-31-2021
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  * Modifications Log 
  * Ver   Date         Author                               Modification
@@ -24,7 +24,7 @@ private class TestAdvisorController{
 		// Insert User Record
 		Database.SaveResult result = Database.insert(userObj, false);
 
-		User userTest = AdvisorController.getAdvisorDetails(userObj.Id);
+		Contact userTest = AdvisorController.getAdvisorDetails(userObj.Id);
                 
         // Verify the User Id is not null
         System.assertEquals(UserTest,UserTest,'Test User was found');

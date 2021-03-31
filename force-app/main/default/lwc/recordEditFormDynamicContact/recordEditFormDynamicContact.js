@@ -18,7 +18,6 @@ export default class RecordEditFormEditExampleLWC extends LightningElement {
 
     }
 
-
     handleSuccess(event) {
         console.log(recordId);
         console.log('onsuccess event recordEditForm', event.detail.id);

@@ -15,7 +15,6 @@ export default class Userinfoexample extends LightningElement
         } else if (error) {
 
             this.error = error;
-
         }
     }
 }
