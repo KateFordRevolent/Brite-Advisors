@@ -2,13 +2,13 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-31-2021
+ * @last modified on  : 04-06-2021
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
  * Modifications Log 
  * Ver   Date         Author                               Modification
  * 1.0   02-19-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
 **/
-public WITHOUT SHARING class CalendarController {
+public WITH SHARING class CalendarController {
     @AuraEnabled(cacheable=true)
         public static List<Event> getCalendarDetails(String recId) {
             

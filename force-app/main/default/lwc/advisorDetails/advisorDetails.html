@@ -2,7 +2,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 03-31-2021
+  @last modified on  : 04-06-2021
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
   Ver   Date         Author                               Modification
   1.0   03-01-2021   ChangeMeIn@UserSettingsUnder.SFDoc   Initial Version
@@ -11,7 +11,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 03-31-2021
+  @last modified on  : 04-06-2021
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
   Modifications Log 
   Ver   Date         Author                               Modification
@@ -26,9 +26,9 @@
           <template if:true={contact}>
             <lightning-layout-item padding="around-small" size="12" small-device-size="6" medium-device-size="3" large-device-size="3">
                 <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
-                    <ul>
-                        <img class="theimage" src={advisorImageStaticUrl} alternative-text="No Image Available" height="400px" width="300px"/>
-                    </ul>  
+                  <ul>
+                    <img class="theimage" src={advisorImageDynamicUrl} alternative-text="No Image Available" height="400px" width="300px"/>
+                </ul>   
                 </div>
             </lightning-layout-item>
 
@@ -44,8 +44,9 @@
                     <ul>
                         <li class="class='field-title" title="AdvisorName">{contact.Owner.Name}</li>
                         <li class="class='field-title" title="AdvisorRole">Investment Advisor</li>
-                        <li class="class='field-title" title="AdvisorEmail">briteadvisorsmvp@gmail.com</li>
-                    </ul>
+                        <li class="class='field-title" title="AdvisorEmail">{contact.Owner.Email}</li>
+                        <li class="class='field-title" title="AdvisorMobilePhone">{contact.Owner.MobilePhone}</li>
+                      </ul>
                  
                 </div>
             </lightning-layout-item>
