@@ -14,7 +14,7 @@ export default class AdvisorDetails extends LightningElement
   
     @track advisorImageDynamicUrl;
     @track advisorImageName;
-   
+
     @wire(getAdvisorDetails, {recId: '$userId' }) wiredContact({ error, data})
     { 
         if (data)
@@ -23,9 +23,9 @@ export default class AdvisorDetails extends LightningElement
             this.contact = data;
             this.advisorImageName = this.contact.Owner.FirstName + this.contact.Owner.LastName;
             
-            // Add a method to check to see if static resource of that name exists.
+            // TODO Add a method to check to see if static resource of that name exists.
             // If not this.advisorImageName = 'advisorImagePending';
-            // Test this with Michael Potts
+            // Test this with Michael Potts. Added an image for MP until this is done.
 
             this.advisorImageDynamicUrl = advisorImagesUrl + '/' + this.advisorImageName + '.png';
             
